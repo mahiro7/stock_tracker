@@ -5,12 +5,12 @@ defmodule StockTracker do
 
   @doc """
   Hello world.
-
+  
   ## Examples
-
+  
       iex> StockTracker.hello()
       :world
-
+  
   """
   def hello do
     :world

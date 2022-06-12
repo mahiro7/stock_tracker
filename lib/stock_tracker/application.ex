@@ -11,7 +11,10 @@ defmodule StockTracker.Application do
       # Starts a worker by calling: StockTracker.Worker.start_link(arg)
       # {StockTracker.Worker, arg}
       StockTracker.Repo,
-      {Plug.Cowboy, scheme: :http, plug: StockTracker.Router, options: [port: Application.get_env(:stock_tracker, :port)]}
+      {Plug.Cowboy,
+       scheme: :http,
+       plug: StockTracker.Router,
+       options: [port: Application.get_env(:stock_tracker, :port)]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
