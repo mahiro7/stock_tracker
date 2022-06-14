@@ -1,8 +1,11 @@
 # StockTracker
 
 ## Running with Docker:
-- ```docker-compose build```
 - ```docker-compose up -d```
+- ```mix deps.get```
+- ```mix ecto.create```
+- ```mix ecto.migrate```
+- ```mix run --no-halt```
 
 ## Running tests:
 - ```mix test```
