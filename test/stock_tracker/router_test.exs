@@ -4,13 +4,4 @@ defmodule StockTrackerTest.Router do
 
   @opts StockTracker.Router.init([])
 
-  test "returns OK" do
-    conn = conn(:get, "/")
-
-    request = StockTracker.Router.call(conn, @opts)
-
-    assert request.state == :sent
-    assert request.resp_body == "OK"
-    assert request.status == 200
-  end
 end

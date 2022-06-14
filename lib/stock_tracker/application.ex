@@ -5,6 +5,8 @@ defmodule StockTracker.Application do
 
   use Application
 
+  require Logger
+
   @impl true
   def start(_type, _args) do
     children = [
@@ -14,9 +16,11 @@ defmodule StockTracker.Application do
       {Plug.Cowboy,
        scheme: :http,
        plug: StockTracker.Router,
-       options: [port: Application.get_env(:stock_tracker, :port)]}
+       options: [port: Application.get_env(:stock_tracker, :port)]},
+       StockTracker.RequestScheduler
     ]
 
+    Logger.info("StockTracker started on port: #{Application.get_env(:stock_tracker, :port)}")
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: StockTracker.Supervisor]

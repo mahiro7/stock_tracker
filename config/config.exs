@@ -1,7 +1,8 @@
 import Config
 
+
 config :stock_tracker, StockTracker.Repo,
-  database: "stock_tracker_repo",
+  database: "stock_tracker",
   username: "postgres",
   password: "postgres",
   hostname: "localhost"
