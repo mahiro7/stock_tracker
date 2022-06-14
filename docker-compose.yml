@@ -11,22 +11,22 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: stock_tracker
-    restart: always
-    volumes:
-      - 'pgdata:/var/lib/postgresql/data'
-
-  app:
-    build: .
-    environment:
-      MIX_ENV: dev
-    env_file:
-      - .env
-    ports:
-      - "4000:4000"
-    depends_on:
-      - db
-    volumes:
-      - .:/app
-
-volumes:
-  pgdata:
+#    restart: always
+#    volumes:
+#      - 'pgdata:/var/lib/postgresql/data'
+#
+#  app:
+#    build: .
+#    environment:
+#      MIX_ENV: dev
+#    env_file:
+#      - .env
+#    ports:
+#      - "4000:4000"
+#    depends_on:
+#      - db
+#    volumes:
+#      - .:/app
+#
+#volumes:
+#  pgdata:

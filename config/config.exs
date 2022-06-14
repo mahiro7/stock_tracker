@@ -2,9 +2,10 @@ import Config
 
 
 config :stock_tracker, StockTracker.Repo,
-  url: System.get_env("DATABASE_URL"),
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  database: "stock_tracker",
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost"
 
 
 config :stock_tracker, ecto_repos: [StockTracker.Repo]
