@@ -1,7 +1,7 @@
 version: '3.1'
 
 services: 
-  database:
+  db:
     image: 'postgres:latest'
 
     ports:
@@ -11,15 +11,22 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: stock_tracker
-  
-        #  pgadmin:
-        #    image: dpage/pgadmin4:4.23
-        #    environment:
-        #      PGADMIN_DEFAULT_EMAIL: admin@pgadmin.com
-        #      PGADMIN_DEFAULT_PASSWORD: password
-        #      PGADMIN_LISTEN_PORT: 80
-        #
-        #    ports:
-        #        - 1543:80 
-        #    depends_on:
-        #        - database
+    restart: always
+    volumes:
+      - 'pgdata:/var/lib/postgresql/data'
+
+  app:
+    build: .
+    environment:
+      MIX_ENV: dev
+    env_file:
+      - .env
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+
+volumes:
+  pgdata:
