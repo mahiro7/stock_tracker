@@ -1,21 +1,21 @@
 # StockTracker
 
-**TODO: Add description**
+## Running with Docker:
+- ```docker-compose build```
+- ```docker-compose up -d```
 
-## Installation
+## Running tests:
+- ```mix test```
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `stock_tracker` to your list of dependencies in `mix.exs`:
+## Endpoints:
+### POST localhost:8080/track
+- Creates a new tracker for the ticker sent.
+- Body: {"symbol": "ticker_symbol"}
 
-```elixir
-def deps do
-  [
-    {:stock_tracker, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/stock_tracker>.
-
+### GET  localhost:8080/status/:symbol
+- Returns all tracked data from a stock.
+- Optional parameters:
+  - start=timestamp (e.g. 2020-06-10 20:45:00)
+  - end=timestamp
+  - min_volume=integer
+  - max_volume=integer
